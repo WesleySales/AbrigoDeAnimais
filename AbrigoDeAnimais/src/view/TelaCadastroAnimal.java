@@ -26,9 +26,19 @@ public class TelaCadastroAnimal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnArquivarTutor1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtNomeAnima = new javax.swing.JTextField();
+        btnEncerrarSessao = new javax.swing.JButton();
+        btnArquivarTutor2 = new javax.swing.JButton();
+
+        btnArquivarTutor1.setText("RETORNAR");
+        btnArquivarTutor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnArquivarTutor1ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -41,6 +51,26 @@ public class TelaCadastroAnimal extends javax.swing.JFrame {
         jLabel1.setText("ABRIGO DE ANIMAIS");
 
         txtNomeAnima.setText("jTextField1");
+        txtNomeAnima.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeAnimaActionPerformed(evt);
+            }
+        });
+
+        btnEncerrarSessao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnEncerrarSessao.setText("X");
+        btnEncerrarSessao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEncerrarSessaoActionPerformed(evt);
+            }
+        });
+
+        btnArquivarTutor2.setText("RETORNAR");
+        btnArquivarTutor2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnArquivarTutor2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -51,15 +81,25 @@ public class TelaCadastroAnimal extends javax.swing.JFrame {
                 .addGap(74, 74, 74)
                 .addComponent(txtNomeAnima, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnEncerrarSessao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnArquivarTutor2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addComponent(btnEncerrarSessao, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
                 .addComponent(txtNomeAnima, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(294, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
+                .addComponent(btnArquivarTutor2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -78,6 +118,26 @@ public class TelaCadastroAnimal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEncerrarSessaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncerrarSessaoActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnEncerrarSessaoActionPerformed
+
+    private void btnArquivarTutor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArquivarTutor1ActionPerformed
+        TelaInicial tela = new TelaInicial();
+        this.dispose();
+        tela.setVisible(true);
+    }//GEN-LAST:event_btnArquivarTutor1ActionPerformed
+
+    private void btnArquivarTutor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArquivarTutor2ActionPerformed
+        TelaInicial tela = new TelaInicial();
+        this.dispose();
+        tela.setVisible(true);
+    }//GEN-LAST:event_btnArquivarTutor2ActionPerformed
+
+    private void txtNomeAnimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeAnimaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeAnimaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,6 +178,9 @@ public class TelaCadastroAnimal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnArquivarTutor1;
+    private javax.swing.JButton btnArquivarTutor2;
+    private javax.swing.JButton btnEncerrarSessao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtNomeAnima;
