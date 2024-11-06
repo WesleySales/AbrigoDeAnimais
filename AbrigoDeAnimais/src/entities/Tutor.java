@@ -10,6 +10,7 @@ public class Tutor {
    private String sobrenome;
    private String telefone;
    private int idade;
+   private boolean ativo;
    private static List<Tutor> listaDeTutores = new ArrayList<>();
 
     public Tutor( String nome, String sobrenome, String telefone, int idade) {
@@ -18,6 +19,7 @@ public class Tutor {
         this.sobrenome = sobrenome;
         this.telefone = telefone;
         this.idade = idade;
+        this.ativo = true;
     }
    
     public static void cadastrarTutor( String nome, String sobrenome, String telefone, int idade){
@@ -25,12 +27,13 @@ public class Tutor {
         listaDeTutores.add(tutor);
     }
     
-    public void deletarTutor(int id){
+    public static void arquivarTutor(int id){
         Tutor t = buscarTutorPorId(id);
-        listaDeTutores.remove(t);
+//        listaDeTutores.remove(t);
+        t.setAtivo(false);
     }
     
-    public Tutor buscarTutorPorId(int id){
+    public static Tutor buscarTutorPorId(int id){
         if(!listaDeTutores.isEmpty()){
             for(Tutor t: listaDeTutores){
                 if(t.getId()==id){
@@ -45,7 +48,9 @@ public class Tutor {
         StringBuilder sb = new StringBuilder();
         if(!listaDeTutores.isEmpty()){
            for(Tutor t: listaDeTutores){
-               sb.append(t).append("\n");
+               if(t.isAtivo()==true){
+                  sb.append(t).append("\n"); 
+               }
            }
         }
         return sb.toString();
@@ -99,9 +104,18 @@ public class Tutor {
         this.idade = idade;
     }
 
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+   
     @Override
     public String toString() {
-        return "id:" + id + ", Tutor: " + nome + " " + sobrenome + ", Telefone=" + telefone + ", Idade=" + idade;
+        return "id:" + getId() + ", Tutor: " + getNome() + " " + getSobrenome() + 
+                ", Telefone=" + getTelefone() + ", Ativo: "+ isAtivo()+ ", Idade: " + getIdade();
     }
     
 }
