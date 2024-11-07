@@ -5,6 +5,7 @@
 package view;
 
 import entities.Tutor;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,6 +18,10 @@ public class TelaTutor extends javax.swing.JFrame {
      */
     public TelaTutor() {
         initComponents();
+        Tutor.cadastrarTutor("Yngred", "Soares", "717171", 20);
+        Tutor.cadastrarTutor("Mauri", "Volpato", "88956", 23);
+        Tutor.cadastrarTutor("Jeremias", "", "", 60);   
+        txtAreaTutores.setText(Tutor.exibirTutores());
     }
 
     /**
@@ -30,22 +35,17 @@ public class TelaTutor extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtNomeTutor = new javax.swing.JTextField();
-        txtSobrenomeTutor = new javax.swing.JTextField();
-        txtTelefoneTutor = new javax.swing.JTextField();
-        btnCadastrarTutor = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        txtIdadeTutor = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        btnListarTutores = new javax.swing.JButton();
+        btnEncerrarSessao = new javax.swing.JButton();
+        btnVoltarAoMenuPrincipal = new javax.swing.JButton();
+        painalListaTutores = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaTutores = new javax.swing.JTextArea();
-        btnListarTutores = new javax.swing.JButton();
+        btnEditarTutor = new javax.swing.JButton();
         btnArquivarTutor = new javax.swing.JButton();
-        txtBuscarPorId = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtBuscarTutor = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
-        btnEncerrarSessao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -54,79 +54,15 @@ public class TelaTutor extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(102, 0, 51));
 
-        jLabel1.setFont(new java.awt.Font("Siemens Serif", 1, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Siemens Serif", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ABRIGO DE ANIMAIS");
 
-        txtNomeTutor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeTutorActionPerformed(evt);
-            }
-        });
-
-        txtSobrenomeTutor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSobrenomeTutorActionPerformed(evt);
-            }
-        });
-
-        txtTelefoneTutor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefoneTutorActionPerformed(evt);
-            }
-        });
-
-        btnCadastrarTutor.setText("CADASTRAR");
-        btnCadastrarTutor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarTutorActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("NOME");
-
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("SOBRENOME");
-
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("TELEFONE");
-
-        txtIdadeTutor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdadeTutorActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("IDADE");
-
-        txtAreaTutores.setBackground(new java.awt.Color(102, 0, 51));
-        txtAreaTutores.setColumns(20);
-        txtAreaTutores.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        txtAreaTutores.setForeground(new java.awt.Color(255, 255, 255));
-        txtAreaTutores.setRows(5);
-        jScrollPane1.setViewportView(txtAreaTutores);
-
-        btnListarTutores.setText("LISTAR");
+        btnListarTutores.setText("LISTAR TODOS");
         btnListarTutores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnListarTutoresActionPerformed(evt);
-            }
-        });
-
-        btnArquivarTutor.setText("ARQUIVAR");
-        btnArquivarTutor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnArquivarTutorActionPerformed(evt);
-            }
-        });
-
-        btnBuscar.setText("BUSCAR");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
             }
         });
 
@@ -138,78 +74,118 @@ public class TelaTutor extends javax.swing.JFrame {
             }
         });
 
+        btnVoltarAoMenuPrincipal.setText("MENU PRINCIPAL");
+        btnVoltarAoMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarAoMenuPrincipalActionPerformed(evt);
+            }
+        });
+
+        painalListaTutores.setBackground(new java.awt.Color(102, 0, 51));
+
+        txtAreaTutores.setBackground(new java.awt.Color(102, 0, 51));
+        txtAreaTutores.setColumns(20);
+        txtAreaTutores.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        txtAreaTutores.setForeground(new java.awt.Color(255, 255, 255));
+        txtAreaTutores.setRows(5);
+        jScrollPane1.setViewportView(txtAreaTutores);
+
+        btnEditarTutor.setText("EDITAR");
+        btnEditarTutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarTutorActionPerformed(evt);
+            }
+        });
+
+        btnArquivarTutor.setText("ARQUIVAR");
+        btnArquivarTutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnArquivarTutorActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("LISTA DE TUTORES CADASTRADOS:");
+
+        javax.swing.GroupLayout painalListaTutoresLayout = new javax.swing.GroupLayout(painalListaTutores);
+        painalListaTutores.setLayout(painalListaTutoresLayout);
+        painalListaTutoresLayout.setHorizontalGroup(
+            painalListaTutoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painalListaTutoresLayout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addGroup(painalListaTutoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painalListaTutoresLayout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEditarTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnArquivarTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1))
+                .addGap(69, 69, 69))
+        );
+        painalListaTutoresLayout.setVerticalGroup(
+            painalListaTutoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painalListaTutoresLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(painalListaTutoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(painalListaTutoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnEditarTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnArquivarTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
+        btnBuscar.setText("BUSCAR");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtBuscarPorId)
-                            .addComponent(txtNomeTutor, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtSobrenomeTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTelefoneTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtIdadeTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnCadastrarTutor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(btnArquivarTutor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                                        .addComponent(btnListarTutores, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
-                .addContainerGap(65, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnVoltarAoMenuPrincipal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnEncerrarSessao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(painalListaTutores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(txtBuscarTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnListarTutores, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(btnEncerrarSessao, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
+                    .addComponent(btnEncerrarSessao, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVoltarAoMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNomeTutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSobrenomeTutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTelefoneTutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtIdadeTutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCadastrarTutor))
-                .addGap(3, 3, 3)
-                .addComponent(btnListarTutores)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnArquivarTutor)
-                    .addComponent(txtBuscarPorId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(txtBuscarTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnListarTutores, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(painalListaTutores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -220,64 +196,73 @@ public class TelaTutor extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNomeTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeTutorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeTutorActionPerformed
-
-    private void txtSobrenomeTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSobrenomeTutorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSobrenomeTutorActionPerformed
-
-    private void txtTelefoneTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneTutorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefoneTutorActionPerformed
-
-    private void txtIdadeTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdadeTutorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdadeTutorActionPerformed
-
-    private void btnCadastrarTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarTutorActionPerformed
-        String nome = txtNomeTutor.getText().toUpperCase();
-        String sobrenome = txtSobrenomeTutor.getText().toUpperCase();
-        String telefone = txtTelefoneTutor.getText();
-        int idade = Integer.parseInt(txtIdadeTutor.getText());
-        
-        Tutor.cadastrarTutor(nome, sobrenome, telefone, idade);
-        
-    }//GEN-LAST:event_btnCadastrarTutorActionPerformed
-
     private void btnListarTutoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarTutoresActionPerformed
         txtAreaTutores.setText(Tutor.exibirTutores());
     }//GEN-LAST:event_btnListarTutoresActionPerformed
 
     private void btnArquivarTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArquivarTutorActionPerformed
-        int id = Integer.parseInt(txtBuscarPorId.getText());
-        Tutor.arquivarTutor(id);
+        if(txtBuscarTutor.getText().equalsIgnoreCase("")|| txtBuscarTutor.getText().equalsIgnoreCase("Digite o id...")){
+            JOptionPane.showMessageDialog(null, "Escolha um tutor para realizar a ação");
+            txtBuscarTutor.requestFocus();
+        } else {
+            String nome = txtBuscarTutor.getText();
+            Tutor t = Tutor.buscarTutorPorNome(nome);
+            Tutor.arquivarTutor(t);
+            JOptionPane.showMessageDialog(null, "Tutor arquivado com sucesso!");
+            btnListarTutoresActionPerformed(evt);
+        }
     }//GEN-LAST:event_btnArquivarTutorActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        int id = Integer.parseInt(txtBuscarPorId.getText());
-        Tutor t = Tutor.buscarTutorPorId(id);
-        txtAreaTutores.setText(t.toString());
+        //ALTEREI A FUNCIONALIDADE PARA BUSCAR POR NOME
+        String nome = txtBuscarTutor.getText();
+
+        if (Tutor.buscarTutorPorNome(nome)!=null){
+            Tutor t = Tutor.buscarTutorPorNome(nome);
+            txtAreaTutores.setText(t.toString());
+            
+        } else {
+            txtAreaTutores.setText("Tutor nao existe ou esta inativo");
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnEncerrarSessaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncerrarSessaoActionPerformed
         dispose();
     }//GEN-LAST:event_btnEncerrarSessaoActionPerformed
 
-    public void limparCamposDeTexto(){
-        txtNomeTutor.setText("");
-        txtSobrenomeTutor.setText("");
-        txtTelefoneTutor.setText("");
-        txtIdadeTutor.setText("");
-    }
+    private void btnVoltarAoMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarAoMenuPrincipalActionPerformed
+        TelaInicial tela = new TelaInicial();
+        this.dispose();
+        tela.setVisible(true);
+    }//GEN-LAST:event_btnVoltarAoMenuPrincipalActionPerformed
+
+    private void btnEditarTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarTutorActionPerformed
+        if(txtBuscarTutor.getText().equalsIgnoreCase("")|| txtBuscarTutor.getText().equalsIgnoreCase("Digite o nome...")){
+            JOptionPane.showMessageDialog(null, "Escolha um tutor para realizar a ação");
+            txtBuscarTutor.requestFocus();
+        } else {
+            int id = Integer.parseInt(txtBuscarTutor.getText());
+            Tutor t = Tutor.buscarTutorPorId(id);
+            
+            
+//            Tutor.editarInformacoesTutor(t, nome, sobrenome, telefone, id);
+            JOptionPane.showMessageDialog(null, "Informações atualizadas com sucesso");
+        }
+    }//GEN-LAST:event_btnEditarTutorActionPerformed
+
+//    public void limparCamposDeTexto(){
+//        txtNomeTutor.setText("");
+//        txtSobrenomeTutor.setText("");
+//        txtTelefoneTutor.setText("");
+//        txtIdadeTutor.setText("");
+//    }
     /**
      * @param args the command line arguments
      */
@@ -331,21 +316,16 @@ public class TelaTutor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnArquivarTutor;
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnCadastrarTutor;
+    private javax.swing.JButton btnEditarTutor;
     private javax.swing.JButton btnEncerrarSessao;
     private javax.swing.JButton btnListarTutores;
+    private javax.swing.JButton btnVoltarAoMenuPrincipal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel painalListaTutores;
     private javax.swing.JTextArea txtAreaTutores;
-    private javax.swing.JTextField txtBuscarPorId;
-    private javax.swing.JTextField txtIdadeTutor;
-    private javax.swing.JTextField txtNomeTutor;
-    private javax.swing.JTextField txtSobrenomeTutor;
-    private javax.swing.JTextField txtTelefoneTutor;
+    private javax.swing.JTextField txtBuscarTutor;
     // End of variables declaration//GEN-END:variables
 }

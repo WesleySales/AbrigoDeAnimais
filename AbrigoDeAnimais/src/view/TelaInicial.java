@@ -17,10 +17,6 @@ public class TelaInicial extends javax.swing.JFrame {
      */
     public TelaInicial() {
         initComponents();
-        
-        Tutor.cadastrarTutor("Yngred", "Soares", "717171", 20);
-        Tutor.cadastrarTutor("Mauri", "Volpato", "88956", 23);
-        Tutor.cadastrarTutor("Jeremias", "", "", 60);
     }
 
     /**
