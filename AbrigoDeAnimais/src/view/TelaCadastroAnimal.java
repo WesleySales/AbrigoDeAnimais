@@ -4,6 +4,9 @@
  */
 package view;
 
+import entities.Cachorro;
+import entities.Gato;
+
 /**
  *
  * @author aluno
@@ -28,13 +31,14 @@ public class TelaCadastroAnimal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtNomeAnima = new javax.swing.JTextField();
+        txtNomeAnimal = new javax.swing.JTextField();
         btnEncerrarSessao = new javax.swing.JButton();
         btnArquivarTutor2 = new javax.swing.JButton();
-        txtNomeAnima1 = new javax.swing.JTextField();
-        txtNomeAnima2 = new javax.swing.JTextField();
+        txtIdadeAnimal = new javax.swing.JTextField();
+        txtPesoAnimal = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        comboBoxEspecie = new javax.swing.JComboBox<>();
+        comboBoxCor = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -46,10 +50,10 @@ public class TelaCadastroAnimal extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ABRIGO DE ANIMAIS");
 
-        txtNomeAnima.setText("jTextField1");
-        txtNomeAnima.addActionListener(new java.awt.event.ActionListener() {
+        txtNomeAnimal.setText("NOME");
+        txtNomeAnimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeAnimaActionPerformed(evt);
+                txtNomeAnimalActionPerformed(evt);
             }
         });
 
@@ -68,26 +72,38 @@ public class TelaCadastroAnimal extends javax.swing.JFrame {
             }
         });
 
-        txtNomeAnima1.setText("jTextField1");
-        txtNomeAnima1.addActionListener(new java.awt.event.ActionListener() {
+        txtIdadeAnimal.setText("IDADE");
+        txtIdadeAnimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeAnima1ActionPerformed(evt);
+                txtIdadeAnimalActionPerformed(evt);
             }
         });
 
-        txtNomeAnima2.setText("jTextField1");
-        txtNomeAnima2.addActionListener(new java.awt.event.ActionListener() {
+        txtPesoAnimal.setText("PESO");
+        txtPesoAnimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeAnima2ActionPerformed(evt);
+                txtPesoAnimalActionPerformed(evt);
             }
         });
 
-        jButton1.setText("jButton1");
-
-        jCheckBox1.setText("jCheckBox1");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("CADASTRAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        comboBoxEspecie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "GATO", "CACHORRO" }));
+        comboBoxEspecie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxEspecieActionPerformed(evt);
+            }
+        });
+
+        comboBoxCor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BRANCO", "PRETO", "CARAMELO", " " }));
+        comboBoxCor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxCorActionPerformed(evt);
             }
         });
 
@@ -99,23 +115,24 @@ public class TelaCadastroAnimal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnEncerrarSessao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnArquivarTutor2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(txtNomeAnima, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtNomeAnima1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtNomeAnima2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(283, 283, 283)
-                .addComponent(jCheckBox1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnArquivarTutor2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(txtNomeAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPesoAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtIdadeAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(comboBoxCor, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(comboBoxEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(279, 279, 279)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -124,21 +141,18 @@ public class TelaCadastroAnimal extends javax.swing.JFrame {
                 .addComponent(btnEncerrarSessao, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
+                .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNomeAnima, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNomeAnima1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNomeAnima2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 412, Short.MAX_VALUE)
-                        .addComponent(btnArquivarTutor2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jCheckBox1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(comboBoxEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBoxCor, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNomeAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPesoAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIdadeAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(77, 77, 77)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 393, Short.MAX_VALUE)
+                .addComponent(btnArquivarTutor2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -166,21 +180,71 @@ public class TelaCadastroAnimal extends javax.swing.JFrame {
         tela.setVisible(true);
     }//GEN-LAST:event_btnArquivarTutor2ActionPerformed
 
-    private void txtNomeAnimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeAnimaActionPerformed
+    private void txtNomeAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeAnimalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeAnimaActionPerformed
+    }//GEN-LAST:event_txtNomeAnimalActionPerformed
 
-    private void txtNomeAnima1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeAnima1ActionPerformed
+    private void txtIdadeAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdadeAnimalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeAnima1ActionPerformed
+    }//GEN-LAST:event_txtIdadeAnimalActionPerformed
 
-    private void txtNomeAnima2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeAnima2ActionPerformed
+    private void txtPesoAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesoAnimalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeAnima2ActionPerformed
+    }//GEN-LAST:event_txtPesoAnimalActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void comboBoxEspecieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxEspecieActionPerformed
+//        int index = comboBoxEspecie.getSelectedIndex();
+//        switch(index){
+//            case 0:
+//            txtAreaTutores.setText(Tutor.exibirTutores());
+//            txtTituloLista.setText("LISTA DE TUTORES");
+//            break;
+//            case 1:
+//            txtAreaTutores.setText(Tutor.exibirTutoresAtivos());
+//            txtTituloLista.setText("LISTA DE TUTORES ATIVOS");
+//            break;
+//            case 2:
+//            txtAreaTutores.setText(Tutor.exibirTutoresArquivados());
+//            txtTituloLista.setText("LISTA DE TUTORES ARQUIVADOS");
+//            break;
+//        }
+    }//GEN-LAST:event_comboBoxEspecieActionPerformed
+
+    private void comboBoxCorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxCorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_comboBoxCorActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int indexEspecie = comboBoxEspecie.getSelectedIndex();
+        int indexCor = comboBoxEspecie.getSelectedIndex();
+        
+        double peso = Double.parseDouble(txtPesoAnimal.getText());
+        int idade = Integer.parseInt(txtIdadeAnimal.getText());
+        String nome = txtNomeAnimal.getText();
+        
+        String cor;
+        
+        switch (indexCor){
+            case 0:
+                cor = "BRANCO";
+                break;
+            case 1:
+                cor = "PRETO";
+                break;
+            case 2:
+                cor = "CARAMELO";
+                break;
+        }
+        
+        switch(indexEspecie){
+           case 0:
+               Gato gato = new Gato(nome, idade, peso, cor);
+               break;
+           case 1: 
+               Cachorro cachorro = new Cachorro(nome, idade, peso, cor);
+               break;
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,12 +287,13 @@ public class TelaCadastroAnimal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnArquivarTutor2;
     private javax.swing.JButton btnEncerrarSessao;
+    private javax.swing.JComboBox<String> comboBoxCor;
+    private javax.swing.JComboBox<String> comboBoxEspecie;
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtNomeAnima;
-    private javax.swing.JTextField txtNomeAnima1;
-    private javax.swing.JTextField txtNomeAnima2;
+    private javax.swing.JTextField txtIdadeAnimal;
+    private javax.swing.JTextField txtNomeAnimal;
+    private javax.swing.JTextField txtPesoAnimal;
     // End of variables declaration//GEN-END:variables
 }

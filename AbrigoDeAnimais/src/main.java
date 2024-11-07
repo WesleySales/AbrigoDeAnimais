@@ -1,5 +1,7 @@
 
+import entities.Animal;
 import entities.Cachorro;
+import entities.Gato;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -16,11 +18,14 @@ public class main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Gato novoGato = new Gato("Perola", 2, 6, "Branco");
+        Cachorro novoCachorro = new Cachorro("Princesa", 20, 80, "NEGONA");
+        Animal novoAnimal = new Cachorro("ANIMAL", 1, 2, "CINZA");
         
-        Cachorro novoCachorro = new Cachorro("Preto", 25.00, "Labrador", "Arya", 3);
-        Cachorro cachorro2 = new Cachorro("Marrom", 32.00, "Labrador", "Toby", 9);
         
-        Cachorro.
+        novoGato.emitirSom();
+        novoCachorro.emitirSom();
+        novoAnimal.emitirSom();
         
     }
     
