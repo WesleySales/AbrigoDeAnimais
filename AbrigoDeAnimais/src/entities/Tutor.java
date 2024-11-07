@@ -28,9 +28,8 @@ public class Tutor {
         listaDeTutores.add(tutor);
     }
     
-    public static void arquivarTutor(int id){
-        Tutor t = buscarTutorPorId(id);
-        t.setAtivo(false);
+    public static void arquivarTutor(Tutor tutor){
+        tutor.setAtivo(false);
     }
     
     public static Tutor buscarTutorPorId(int id){
@@ -53,6 +52,15 @@ public class Tutor {
             }
         }
         return null;
+    }
+    
+    public static void editarInformacoesTutor(Tutor tutor, String nome, String sobrenome, String telefone, int idade){
+        if(tutor!=null){
+            tutor.setNome(nome);
+            tutor.setSobrenome(sobrenome);
+            tutor.setTelefone(telefone);
+            tutor.setIdade(idade);
+        }
     }
 
     public static String exibirTutores(){
