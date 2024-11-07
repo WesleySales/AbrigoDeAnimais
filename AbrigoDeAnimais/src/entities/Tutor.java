@@ -67,8 +67,29 @@ public class Tutor {
         StringBuilder sb = new StringBuilder();
         if(!listaDeTutores.isEmpty()){
            for(Tutor t: listaDeTutores){
-               
+                  sb.append(t).append("\n"); 
+           }
+        }
+        return sb.toString();
+    }
+    
+    public static String exibirTutoresAtivos(){
+        StringBuilder sb = new StringBuilder();
+        if(!listaDeTutores.isEmpty()){
+           for(Tutor t: listaDeTutores){
                if(t.isAtivo()==true){
+                  sb.append(t).append("\n"); 
+               }
+           }
+        }
+        return sb.toString();
+    }
+    
+    public static String exibirTutoresArquivados(){
+        StringBuilder sb = new StringBuilder();
+        if(!listaDeTutores.isEmpty()){
+           for(Tutor t: listaDeTutores){
+               if(t.isAtivo()!=true){
                   sb.append(t).append("\n"); 
                }
            }

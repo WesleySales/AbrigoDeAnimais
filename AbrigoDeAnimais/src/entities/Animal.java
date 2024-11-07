@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Animal {
-    protected static int geradorIdAnimal=100;
+
+    protected static int geradorIdAnimal = 100;
     protected int id;
     protected String nome;
-    protected String idade;
-    
-    protected static List<Animal> listaDeAnimais = new ArrayList<>();
-    
-    public Animal(String nome, String idade){
+    protected int idade;
+
+    public static List<Animal> listaDeAnimais = new ArrayList<>();
+
+    public Animal(String nome, int idade) {
         this.id = geradorIdAnimal++;
         this.nome = nome;
         this.idade = idade;
@@ -25,30 +26,35 @@ public class Animal {
         this.nome = nome;
     }
 
-    public String getIdade() {
+    public int getIdade() {
         return idade;
     }
 
-    public void setIdade(String idade) {
+    public void setIdade(int idade) {
         this.idade = idade;
     }
-    
-    public void CadastrarAnimal(String nome, String idade){
+
+    public void cadastrarAnimal(String nome, int idade) {
         Animal novoAnimal = new Animal(nome, idade);
         listaDeAnimais.add(novoAnimal);
     }
-    
-    
-    
-    public void editarAnimal(){
+
+    public void editarAnimal() {
         System.out.println("Animal editado");
     }
-    
-    public void listarAnimal(){
-        System.out.println("Listando animal");
+
+    public static String listarAnimais() {
+        if (!listaDeAnimais.isEmpty()) {
+            StringBuilder sb = new StringBuilder();
+            for (Animal a : Animal.listaDeAnimais) {
+                sb.append(a).append("\n");
+            }
+            return sb.toString();
+        }
+        return null;
     }
-    
-    public void concluirAdocao(){
+
+    public void concluirAdocao() {
         System.out.println("Adoção concluída!");
     }
 
@@ -58,5 +64,5 @@ public class Animal {
 
     public void setId(int id) {
         this.id = id;
-    }    
+    }
 }

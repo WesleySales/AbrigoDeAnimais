@@ -1,14 +1,18 @@
 package entities;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Gato extends Animal{
     private String cor;
     private String raca;
     private double peso;
+    
+    private static List<Gato> listaDeGatos = new ArrayList<>();
 
     public Gato(String nome, String idade, String cor, String raca, double peso) {
         super(nome, idade);
+        setId(Animal.geradorIdAnimal++);
         this.cor = cor;
         this.raca = raca;
         this.peso = peso;
@@ -38,9 +42,10 @@ public class Gato extends Animal{
         this.peso = peso;
     }
 
-    public void cadastrarAnimal() {
-        Animal.listaDeAnimais.add(this);
-//        System.out.println("Gato cadastrado: " + this.getNome());
+    public void cadastrarAnimal(String nome, String idade, String cor, String raca, double peso) {
+        Gato novoGato = new Gato(nome, idade, cor, raca, peso);
+        listaDeGatos.add(novoGato);
+        Animal.listaDeAnimais.add(novoGato);
     }
 //
 //    public void editarAnimal(String nomeBusca, String novoNome, String novaIdade, String novaRaca, String novaCor, double novoPeso) {
@@ -57,20 +62,20 @@ public class Gato extends Animal{
 //
 //    }
 
-    @Override
-    public void listarAnimal() {
-        System.out.println("Lista de gatos: ");
-        for (Gato g : listadeGatos) {
-            System.out.println("Gato: " + g.getNome() + "Idade: " + g.getIdade());
-        }
-    }
+//    @Override
+//    public void listarAnimal() {
+//        System.out.println("Lista de gatos: ");
+//        for (Gato g : listadeGatos) {
+//            System.out.println("Gato: " + g.getNome() + "Idade: " + g.getIdade());
+//        }
+//    }
 
-    @Override
-    public void concluirAdocao() {
-        if (listadeGatos.remove(this)) {
-            System.out.println("Adoção concluída para o gato: " + this.getNome());
-        } else {
-            System.out.println("Gato não encontrado");
-        }
-    }
+//    @Override
+//    public void concluirAdocao() {
+//        if (listadeGatos.remove(this)) {
+//            System.out.println("Adoção concluída para o gato: " + this.getNome());
+//        } else {
+//            System.out.println("Gato não encontrado");
+//        }
+//    }
 }
