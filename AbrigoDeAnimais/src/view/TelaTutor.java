@@ -35,17 +35,17 @@ public class TelaTutor extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnListarTutores = new javax.swing.JButton();
         btnEncerrarSessao = new javax.swing.JButton();
         btnVoltarAoMenuPrincipal = new javax.swing.JButton();
         painalListaTutores = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaTutores = new javax.swing.JTextArea();
-        btnEditarTutor = new javax.swing.JButton();
-        btnArquivarTutor = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        txtTituloLista = new javax.swing.JLabel();
+        comboBoxTutores = new javax.swing.JComboBox<>();
         txtBuscarTutor = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
+        btnEditarTutor = new javax.swing.JButton();
+        btnArquivarTutor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -58,13 +58,6 @@ public class TelaTutor extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ABRIGO DE ANIMAIS");
-
-        btnListarTutores.setText("LISTAR TODOS");
-        btnListarTutores.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListarTutoresActionPerformed(evt);
-            }
-        });
 
         btnEncerrarSessao.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnEncerrarSessao.setText("X");
@@ -90,6 +83,51 @@ public class TelaTutor extends javax.swing.JFrame {
         txtAreaTutores.setRows(5);
         jScrollPane1.setViewportView(txtAreaTutores);
 
+        txtTituloLista.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtTituloLista.setForeground(new java.awt.Color(255, 255, 0));
+        txtTituloLista.setText("LISTA DE TUTORES:");
+
+        comboBoxTutores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TODOS", "ATIVOS", "ARQUIVADOS" }));
+        comboBoxTutores.setSelectedIndex(1);
+        comboBoxTutores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxTutoresActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout painalListaTutoresLayout = new javax.swing.GroupLayout(painalListaTutores);
+        painalListaTutores.setLayout(painalListaTutoresLayout);
+        painalListaTutoresLayout.setHorizontalGroup(
+            painalListaTutoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painalListaTutoresLayout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addGroup(painalListaTutoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painalListaTutoresLayout.createSequentialGroup()
+                        .addComponent(txtTituloLista, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+                        .addGap(198, 198, 198)
+                        .addComponent(comboBoxTutores, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1))
+                .addGap(69, 69, 69))
+        );
+        painalListaTutoresLayout.setVerticalGroup(
+            painalListaTutoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painalListaTutoresLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(painalListaTutoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtTituloLista)
+                    .addComponent(comboBoxTutores, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
+        btnBuscar.setText("BUSCAR");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
         btnEditarTutor.setText("EDITAR");
         btnEditarTutor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,47 +142,6 @@ public class TelaTutor extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("LISTA DE TUTORES CADASTRADOS:");
-
-        javax.swing.GroupLayout painalListaTutoresLayout = new javax.swing.GroupLayout(painalListaTutores);
-        painalListaTutores.setLayout(painalListaTutoresLayout);
-        painalListaTutoresLayout.setHorizontalGroup(
-            painalListaTutoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painalListaTutoresLayout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addGroup(painalListaTutoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painalListaTutoresLayout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEditarTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnArquivarTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1))
-                .addGap(69, 69, 69))
-        );
-        painalListaTutoresLayout.setVerticalGroup(
-            painalListaTutoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painalListaTutoresLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(painalListaTutoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(painalListaTutoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnEditarTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnArquivarTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        btnBuscar.setText("BUSCAR");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -156,12 +153,14 @@ public class TelaTutor extends javax.swing.JFrame {
             .addComponent(painalListaTutores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(txtBuscarTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtBuscarTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnListarTutores, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEditarTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnArquivarTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69))
         );
         jPanel1Layout.setVerticalGroup(
@@ -174,16 +173,17 @@ public class TelaTutor extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(txtBuscarTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnListarTutores, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addGap(18, 18, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnArquivarTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEditarTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtBuscarTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, Short.MAX_VALUE)))
                 .addComponent(painalListaTutores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -203,10 +203,6 @@ public class TelaTutor extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnListarTutoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarTutoresActionPerformed
-        txtAreaTutores.setText(Tutor.exibirTutores());
-    }//GEN-LAST:event_btnListarTutoresActionPerformed
-
     private void btnArquivarTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArquivarTutorActionPerformed
         if(txtBuscarTutor.getText().equalsIgnoreCase("")|| txtBuscarTutor.getText().equalsIgnoreCase("Digite o id...")){
             JOptionPane.showMessageDialog(null, "Escolha um tutor para realizar a ação");
@@ -216,7 +212,7 @@ public class TelaTutor extends javax.swing.JFrame {
             Tutor t = Tutor.buscarTutorPorNome(nome);
             Tutor.arquivarTutor(t);
             JOptionPane.showMessageDialog(null, "Tutor arquivado com sucesso!");
-            btnListarTutoresActionPerformed(evt);
+            txtAreaTutores.setText("");
         }
     }//GEN-LAST:event_btnArquivarTutorActionPerformed
 
@@ -256,6 +252,24 @@ public class TelaTutor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Informações atualizadas com sucesso");
         }
     }//GEN-LAST:event_btnEditarTutorActionPerformed
+
+    private void comboBoxTutoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxTutoresActionPerformed
+        int index = comboBoxTutores.getSelectedIndex();
+        switch(index){
+            case 0:
+                txtAreaTutores.setText(Tutor.exibirTutores());
+                txtTituloLista.setText("LISTA DE TUTORES");                
+                break;
+            case 1:
+                txtAreaTutores.setText(Tutor.exibirTutoresAtivos());
+                txtTituloLista.setText("LISTA DE TUTORES ATIVOS");
+                break;
+            case 2: 
+                txtAreaTutores.setText(Tutor.exibirTutoresArquivados());
+                txtTituloLista.setText("LISTA DE TUTORES ARQUIVADOS");
+                break;
+        }
+    }//GEN-LAST:event_comboBoxTutoresActionPerformed
 
 //    public void limparCamposDeTexto(){
 //        txtNomeTutor.setText("");
@@ -318,14 +332,14 @@ public class TelaTutor extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEditarTutor;
     private javax.swing.JButton btnEncerrarSessao;
-    private javax.swing.JButton btnListarTutores;
     private javax.swing.JButton btnVoltarAoMenuPrincipal;
+    private javax.swing.JComboBox<String> comboBoxTutores;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel painalListaTutores;
     private javax.swing.JTextArea txtAreaTutores;
     private javax.swing.JTextField txtBuscarTutor;
+    private javax.swing.JLabel txtTituloLista;
     // End of variables declaration//GEN-END:variables
 }

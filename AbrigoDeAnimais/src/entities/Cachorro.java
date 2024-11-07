@@ -1,14 +1,18 @@
 package entities;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Cachorro extends Animal{
     private String cor;
     private double peso;
     private String raca;
+    
+    public static List<Animal> listaDeCachorros = new ArrayList<>();
 
-    public Cachorro(String cor, double peso, String raca, String nome, String idade) {
+    public Cachorro(String cor, double peso, String raca, String nome, int idade) {
         super(nome, idade);
+        setId(Animal.geradorIdAnimal++);
         this.cor = cor;
         this.peso = peso;
         this.raca = raca;
@@ -39,11 +43,14 @@ public class Cachorro extends Animal{
     }
 
     @Override
-    public void CadastrarAnimal(String nome, String idade) {
-        super.CadastrarAnimal(nome, idade); 
+    public void cadastrarAnimal(String nome, int idade) {
+        super.cadastrarAnimal(nome, idade); 
         Cachorro novoCachorro = new Cachorro(cor, peso, raca, nome, idade);
+        listaDeCachorros.add(novoCachorro);
         Animal.listaDeAnimais.add(novoCachorro);
     }
+    
+    
     
 //    public void editarAnimal(String nomeBusca, String novoNome, String novaIdade, String novaCor, double novoPeso, String novaRaca){
 //        for(Cachorro c : Animal.listaDeAnimais){
@@ -58,21 +65,27 @@ public class Cachorro extends Animal{
 //        }
 //    }
     
-    @Override
-    public void listarAnimal(){
-        System.out.println("Lista de cachorros: ");
-        for(Cachorro c : Animal.listadeCachorros){
-            System.out.println("Nome: "+ c.getNome()+ " idade: "+ c.getIdade());
-        }
-    }
+    
     
     @Override
-    public void concluirAdocao(){
-        if(listadeCachorros.remove(this)){
-            System.out.println("Adoção concluída para o cachorro: "+ this.getNome());
-        } else {
-            System.out.println("Cachorro não encontrado");
+    public static String listarAnimais(){
+        if (!listaDeAnimais.isEmpty()) {
+            StringBuilder sb = new StringBuilder();
+            for (Cachorro c : listaDeCachorros) {
+                sb.append(c).append("\n");
+            }
+            return sb.toString();
         }
+        return null;
     }
+
+//    @Override
+//    public void concluirAdocao() {
+//        if(listadeCachorros.remove(this)){
+//            System.out.println("Adoção concluída para o cachorro: "+ this.getNome());
+//        } else {
+//            System.out.println("Cachorro não encontrado");
+//        }
+//    }
     
 }
