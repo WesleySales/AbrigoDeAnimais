@@ -264,7 +264,7 @@ public class TelaCadastroTutor extends javax.swing.JFrame {
         int idade = Integer.parseInt(txtIdadeTutor.getText());
         
         Tutor.cadastrarTutor(nome, sobrenome, telefone, idade);
-        
+        limparCamposDeTexto();
     }//GEN-LAST:event_btnCadastrarTutorActionPerformed
 
     private void btnListarTutoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarTutoresActionPerformed
@@ -279,7 +279,13 @@ public class TelaCadastroTutor extends javax.swing.JFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         int id = Integer.parseInt(txtBuscarPorId.getText());
         Tutor t = Tutor.buscarTutorPorId(id);
-        txtAreaTutores.setText(t.toString());
+        
+        if(t==null){
+            txtAreaTutores.setText("Tutor nao existe ou esta inativo");
+        } else{
+            txtAreaTutores.setText(t.toString());
+        }
+        
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnEncerrarSessaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncerrarSessaoActionPerformed

@@ -1,14 +1,22 @@
 package entities;
 
-public class Animal {
-    private String nome;
-    private int idade;
+import java.util.ArrayList;
+import java.util.List;
 
-    public Animal(String nome, int idade) {
+public class Animal {
+    protected static int geradorIdAnimal=100;
+    protected int id;
+    protected String nome;
+    protected String idade;
+    
+    protected static List<Animal> listaDeAnimais = new ArrayList<>();
+    
+    public Animal(String nome, String idade){
+        this.id = geradorIdAnimal++;
         this.nome = nome;
         this.idade = idade;
     }
-    
+
     public String getNome() {
         return nome;
     }
@@ -17,12 +25,38 @@ public class Animal {
         this.nome = nome;
     }
 
-    public int getIdade() {
+    public String getIdade() {
         return idade;
     }
 
-    public void setIdade(int idade) {
+    public void setIdade(String idade) {
         this.idade = idade;
     }
-          
+    
+    public void CadastrarAnimal(String nome, String idade){
+        Animal novoAnimal = new Animal(nome, idade);
+        listaDeAnimais.add(novoAnimal);
+    }
+    
+    
+    
+    public void editarAnimal(){
+        System.out.println("Animal editado");
+    }
+    
+    public void listarAnimal(){
+        System.out.println("Listando animal");
+    }
+    
+    public void concluirAdocao(){
+        System.out.println("Adoção concluída!");
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }    
 }

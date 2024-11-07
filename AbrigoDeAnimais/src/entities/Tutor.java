@@ -11,6 +11,7 @@ public class Tutor {
    private String telefone;
    private int idade;
    private boolean ativo;
+   
    private static List<Tutor> listaDeTutores = new ArrayList<>();
 
     public Tutor( String nome, String sobrenome, String telefone, int idade) {
@@ -29,14 +30,24 @@ public class Tutor {
     
     public static void arquivarTutor(int id){
         Tutor t = buscarTutorPorId(id);
-//        listaDeTutores.remove(t);
         t.setAtivo(false);
     }
     
     public static Tutor buscarTutorPorId(int id){
         if(!listaDeTutores.isEmpty()){
             for(Tutor t: listaDeTutores){
-                if(t.getId()==id){
+                if(t.getId()==id && t.isAtivo()==true){
+                    return t;
+                }
+            }
+        }
+        return null;
+    }
+    
+    public static Tutor buscarTutorPorNome(String nome){
+        if(!listaDeTutores.isEmpty()){
+            for(Tutor t: listaDeTutores){
+                if(t.getNome().equalsIgnoreCase(nome) && t.isAtivo()==true){
                     return t;
                 }
             }
@@ -48,6 +59,7 @@ public class Tutor {
         StringBuilder sb = new StringBuilder();
         if(!listaDeTutores.isEmpty()){
            for(Tutor t: listaDeTutores){
+               
                if(t.isAtivo()==true){
                   sb.append(t).append("\n"); 
                }
@@ -115,7 +127,7 @@ public class Tutor {
     @Override
     public String toString() {
         return "id:" + getId() + ", Tutor: " + getNome() + " " + getSobrenome() + 
-                ", Telefone=" + getTelefone() + ", Ativo: "+ isAtivo()+ ", Idade: " + getIdade();
+                ", Telefone=" + getTelefone() + ", Idade: " + getIdade();
     }
     
 }
