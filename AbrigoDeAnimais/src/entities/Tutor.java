@@ -4,17 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tutor {
-   private static int geradorID=1;
-   private int id; 
-   private String nome;
-   private String sobrenome;
-   private String telefone;
-   private int idade;
-   private boolean ativo;
-   
-   private static List<Tutor> listaDeTutores = new ArrayList<>();
 
-    public Tutor( String nome, String sobrenome, String telefone, int idade) {
+    private static int geradorID = 1;
+    private int id;
+    private String nome;
+    private String sobrenome;
+    private String telefone;
+    private int idade;
+    private boolean ativo;
+
+    public static List<Tutor> listaDeTutores = new ArrayList<>();
+
+    public Tutor(String nome, String sobrenome, String telefone, int idade) {
         this.id = geradorID++;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -22,40 +23,40 @@ public class Tutor {
         this.idade = idade;
         this.ativo = true;
     }
-   
-    public static void cadastrarTutor( String nome, String sobrenome, String telefone, int idade){
+
+    public static void cadastrarTutor(String nome, String sobrenome, String telefone, int idade) {
         Tutor tutor = new Tutor(nome, sobrenome, telefone, idade);
         listaDeTutores.add(tutor);
     }
-    
-    public static void arquivarTutor(Tutor tutor){
+
+    public static void arquivarTutor(Tutor tutor) {
         tutor.setAtivo(false);
     }
-    
-    public static Tutor buscarTutorPorId(int id){
-        if(!listaDeTutores.isEmpty()){
-            for(Tutor t: listaDeTutores){
-                if(t.getId()==id && t.isAtivo()==true){
+
+    public static Tutor buscarTutorPorId(int id) {
+        if (!listaDeTutores.isEmpty()) {
+            for (Tutor t : listaDeTutores) {
+                if (t.getId() == id && t.isAtivo() == true) {
                     return t;
                 }
             }
         }
         return null;
     }
-    
-    public static Tutor buscarTutorPorNome(String nome){
-        if(!listaDeTutores.isEmpty()){
-            for(Tutor t: listaDeTutores){
-                if(t.getNome().equalsIgnoreCase(nome) && t.isAtivo()==true){
+
+    public static Tutor buscarTutorPorNome(String nome) {
+        if (!listaDeTutores.isEmpty()) {
+            for (Tutor t : listaDeTutores) {
+                if (t.getNome().equalsIgnoreCase(nome) && t.isAtivo() == true) {
                     return t;
                 }
             }
         }
         return null;
     }
-    
-    public static void editarInformacoesTutor(Tutor tutor, String nome, String sobrenome, String telefone, int idade){
-        if(tutor!=null){
+
+    public static void editarInformacoesTutor(Tutor tutor, String nome, String sobrenome, String telefone, int idade) {
+        if (tutor != null) {
             tutor.setNome(nome);
             tutor.setSobrenome(sobrenome);
             tutor.setTelefone(telefone);
@@ -63,40 +64,40 @@ public class Tutor {
         }
     }
 
-    public static String exibirTutores(){
+    public static String exibirTutores() {
         StringBuilder sb = new StringBuilder();
-        if(!listaDeTutores.isEmpty()){
-           for(Tutor t: listaDeTutores){
-                  sb.append(t).append("\n"); 
-           }
+        if (!listaDeTutores.isEmpty()) {
+            for (Tutor t : listaDeTutores) {
+                sb.append(t).append("\n");
+            }
         }
         return sb.toString();
     }
-    
-    public static String exibirTutoresAtivos(){
+
+    public static String exibirTutoresAtivos() {
         StringBuilder sb = new StringBuilder();
-        if(!listaDeTutores.isEmpty()){
-           for(Tutor t: listaDeTutores){
-               if(t.isAtivo()==true){
-                  sb.append(t).append("\n"); 
-               }
-           }
+        if (!listaDeTutores.isEmpty()) {
+            for (Tutor t : listaDeTutores) {
+                if (t.isAtivo() == true) {
+                    sb.append(t).append("\n");
+                }
+            }
         }
         return sb.toString();
     }
-    
-    public static String exibirTutoresArquivados(){
+
+    public static String exibirTutoresArquivados() {
         StringBuilder sb = new StringBuilder();
-        if(!listaDeTutores.isEmpty()){
-           for(Tutor t: listaDeTutores){
-               if(t.isAtivo()!=true){
-                  sb.append(t).append("\n"); 
-               }
-           }
+        if (!listaDeTutores.isEmpty()) {
+            for (Tutor t : listaDeTutores) {
+                if (t.isAtivo() != true) {
+                    sb.append(t).append("\n");
+                }
+            }
         }
         return sb.toString();
     }
-    
+
     public static int getGeradorID() {
         return geradorID;
     }
@@ -152,11 +153,11 @@ public class Tutor {
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
     }
-   
+
     @Override
     public String toString() {
-        return "id:" + getId() + ", Tutor: " + getNome() + " " + getSobrenome() + 
-                ", Telefone=" + getTelefone() + ", Idade: " + getIdade();
+        return "id:" + getId() + ", Tutor: " + getNome() + " " + getSobrenome()
+                + ", Telefone=" + getTelefone() + ", Idade: " + getIdade();
     }
-    
+
 }

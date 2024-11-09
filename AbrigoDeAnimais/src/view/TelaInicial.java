@@ -65,7 +65,7 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Siemens Serif", 1, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Britannic Bold", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ABRIGO DE ANIMAIS");
@@ -150,7 +150,9 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarTutorActionPerformed
 
     private void btnRegistrarAdocaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarAdocaoActionPerformed
-        // TODO add your handling code here:
+        var tela = new TelaRegistroAdocao();
+        this.dispose();
+        tela.setVisible(true);
     }//GEN-LAST:event_btnRegistrarAdocaoActionPerformed
 
     private void btnEncerrarSessaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncerrarSessaoActionPerformed

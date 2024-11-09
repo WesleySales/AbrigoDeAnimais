@@ -12,6 +12,7 @@ public class Animal {
     protected double peso;
     protected String cor;
     protected String especie;
+    protected boolean disponivel;
 
     public static List<Animal> listaDeAnimais = new ArrayList<>();
 
@@ -22,6 +23,7 @@ public class Animal {
         this.peso = peso;
         this.cor = cor;
         this.especie = especie;
+        this.disponivel = true;
     }
 
     public String getNome() {
@@ -67,7 +69,31 @@ public class Animal {
         }
         return null;
     }
-
+    
+    public static String listarAnimaisPorEspecie(String especie) {
+        if (!listaDeAnimais.isEmpty()) {
+            StringBuilder sb = new StringBuilder();
+            for (Animal a : Animal.listaDeAnimais) {
+                if(a.especie.equals(especie) && a.isDisponivel()==true){
+                    sb.append(a).append("\n");
+                }                
+            }
+            return sb.toString();
+        }
+        return null;
+    }
+    
+    public static Animal buscarPorNome(String nome){
+        if(!listaDeAnimais.isEmpty()){
+            for(Animal a: listaDeAnimais){
+                if(a.getNome().equalsIgnoreCase(nome) && a.isDisponivel()==true){
+                    return a;
+                }
+            }
+        }
+        return null;
+    }
+    
     public void concluirAdocao() {
         System.out.println("Adoção concluída!");
     }
@@ -79,4 +105,19 @@ public class Animal {
     public void setId(int id) {
         this.id = id;
     }
+
+    public boolean isDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+   
+    @Override
+    public String toString() {
+        return "id: " + id + ", Nome: " + nome + ", Idade: " + idade + ", peso=" + peso + "kg, cor: " + cor + ", especie: " + especie;
+    }
+    
+    
 }

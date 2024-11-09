@@ -4,8 +4,12 @@
  */
 package view;
 
+import entities.Adocao;
 import entities.Animal;
+import entities.Cachorro;
+import entities.Gato;
 import entities.Tutor;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,7 +22,25 @@ public class TelaRegistroAdocao extends javax.swing.JFrame {
      */
     public TelaRegistroAdocao() {
         initComponents();
+        var novoGato1 = new Gato("TESTE", 2, 6, "BRANCO");
+        var novoGato2 = new Gato("Linda", 2, 6, "CINZA");
+        var novoGato3 = new Gato("Gatinha", 2, 6, "BRANCO");
+        var novoCachorro1 = new Cachorro("Princesa", 20, 80, "CARAMELO");
+        var novoCachorro2 = new Cachorro("Princesa", 20, 80, "BRANCO");
+        var novoCachorro3 = new Cachorro("Negao", 20, 80, "PRETO");
         
+        novoGato1.cacadastrarAnimal();
+        novoGato2.cacadastrarAnimal();
+        novoGato3.cacadastrarAnimal();
+        
+        novoCachorro1.cacadastrarAnimal();
+        novoCachorro2.cacadastrarAnimal();
+        novoCachorro3.cacadastrarAnimal();
+        
+        Tutor.cadastrarTutor("Yngred", "Soares", "717171", 20);
+        Tutor.cadastrarTutor("Mauri", "Volpato", "88956", 23);
+        Tutor.cadastrarTutor("Jeremias", "", "", 60);   
+
     }
 
     /**
@@ -32,21 +54,21 @@ public class TelaRegistroAdocao extends javax.swing.JFrame {
 
         btnArquivarTutor1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        txtBuscarPorNome = new javax.swing.JTextField();
+        txtBuscarTutorPorNome = new javax.swing.JTextField();
         btnEncerrarSessao = new javax.swing.JButton();
-        btnArquivarTutor2 = new javax.swing.JButton();
+        btnRetornar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btnBuscarTutor = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        txtBuscarPorNome1 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        txtBuscarPetPorNome = new javax.swing.JTextField();
+        btnBuscarPet = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtListaDeAnimais = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        comboBoxEspecie = new javax.swing.JComboBox<>();
+        comboBoxSexo = new javax.swing.JComboBox<>();
+        btnRegistrarAdocao = new javax.swing.JButton();
 
         btnArquivarTutor1.setText("RETORNAR");
         btnArquivarTutor1.addActionListener(new java.awt.event.ActionListener() {
@@ -60,9 +82,9 @@ public class TelaRegistroAdocao extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(102, 0, 51));
 
-        txtBuscarPorNome.addActionListener(new java.awt.event.ActionListener() {
+        txtBuscarTutorPorNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBuscarPorNomeActionPerformed(evt);
+                txtBuscarTutorPorNomeActionPerformed(evt);
             }
         });
 
@@ -74,10 +96,10 @@ public class TelaRegistroAdocao extends javax.swing.JFrame {
             }
         });
 
-        btnArquivarTutor2.setText("RETORNAR");
-        btnArquivarTutor2.addActionListener(new java.awt.event.ActionListener() {
+        btnRetornar.setText("RETORNAR");
+        btnRetornar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnArquivarTutor2ActionPerformed(evt);
+                btnRetornarActionPerformed(evt);
             }
         });
 
@@ -86,7 +108,7 @@ public class TelaRegistroAdocao extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("REGISTRO ADOÇÃO");
 
-        jLabel3.setFont(new java.awt.Font("Siemens Serif", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Siemens Serif", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("DEFINA O TUTOR QUE ESTA ADOTANDO");
@@ -98,39 +120,26 @@ public class TelaRegistroAdocao extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("CADASTRAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Siemens Serif", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Siemens Serif", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("ESCOLHA O ANIMAL");
 
-        txtBuscarPorNome1.addActionListener(new java.awt.event.ActionListener() {
+        txtBuscarPetPorNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBuscarPorNome1ActionPerformed(evt);
+                txtBuscarPetPorNomeActionPerformed(evt);
             }
         });
 
-        jButton3.setText("BUSCAR PET");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscarPet.setText("SELECIONAR PET");
+        btnBuscarPet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TODOS", "GATO", "CACHORRO" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                btnBuscarPetActionPerformed(evt);
             }
         });
 
         txtListaDeAnimais.setColumns(20);
+        txtListaDeAnimais.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtListaDeAnimais.setRows(5);
         jScrollPane1.setViewportView(txtListaDeAnimais);
 
@@ -139,10 +148,24 @@ public class TelaRegistroAdocao extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("ESPECIE");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MACHO", "FEMEA" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        comboBoxEspecie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TODOS", "GATOS", "CACHORROS" }));
+        comboBoxEspecie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                comboBoxEspecieActionPerformed(evt);
+            }
+        });
+
+        comboBoxSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TODOS", "MACHOS", "FEMEAS" }));
+        comboBoxSexo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxSexoActionPerformed(evt);
+            }
+        });
+
+        btnRegistrarAdocao.setText("REGISTRAR ADOCAO");
+        btnRegistrarAdocao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarAdocaoActionPerformed(evt);
             }
         });
 
@@ -150,41 +173,36 @@ public class TelaRegistroAdocao extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnEncerrarSessao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(105, 105, 105)
+                .addComponent(btnRetornar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtBuscarPorNome, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBuscarTutor)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2))
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnArquivarTutor2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                        .addComponent(btnEncerrarSessao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtBuscarTutorPorNome, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtBuscarPorNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnBuscarTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                                .addComponent(btnRegistrarAdocao, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(414, 414, 414)
-                                .addComponent(jButton3)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(comboBoxEspecie, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(comboBoxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtBuscarPetPorNome, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnBuscarPet, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,40 +211,35 @@ public class TelaRegistroAdocao extends javax.swing.JFrame {
                     .addComponent(btnEncerrarSessao, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnRetornar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtBuscarPorNome, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBuscarTutorPorNome, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnArquivarTutor2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnRegistrarAdocao, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtBuscarPorNome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(74, 74, 74)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtBuscarPetPorNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarPet)
+                    .addComponent(comboBoxEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBoxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,57 +260,79 @@ public class TelaRegistroAdocao extends javax.swing.JFrame {
         tela.setVisible(true);
     }//GEN-LAST:event_btnArquivarTutor1ActionPerformed
 
-    private void btnArquivarTutor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArquivarTutor2ActionPerformed
+    private void btnRetornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetornarActionPerformed
         TelaInicial tela = new TelaInicial();
         this.dispose();
         tela.setVisible(true);
-    }//GEN-LAST:event_btnArquivarTutor2ActionPerformed
+    }//GEN-LAST:event_btnRetornarActionPerformed
 
-    private void txtBuscarPorNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarPorNomeActionPerformed
+    private void txtBuscarTutorPorNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarTutorPorNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarPorNomeActionPerformed
+    }//GEN-LAST:event_txtBuscarTutorPorNomeActionPerformed
 
     private void btnBuscarTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarTutorActionPerformed
-        String nome = txtBuscarPorNome.getText();
-        Tutor t = Tutor.buscarTutorPorNome(nome);
         
     }//GEN-LAST:event_btnBuscarTutorActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void txtBuscarPetPorNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarPetPorNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_txtBuscarPetPorNomeActionPerformed
 
-    private void txtBuscarPorNome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarPorNome1ActionPerformed
+    private void btnBuscarPetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPetActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarPorNome1ActionPerformed
+    }//GEN-LAST:event_btnBuscarPetActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void comboBoxEspecieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxEspecieActionPerformed
+       int indexEspecie = comboBoxEspecie.getSelectedIndex();
+       switch(indexEspecie){
+           case 0:               
+               txtListaDeAnimais.setText(Animal.listarAnimais());
+               break;
+           case 1:
+               txtListaDeAnimais.setText(Animal.listarAnimaisPorEspecie("GATO"));
+               break;
+           case 2: 
+               txtListaDeAnimais.setText(Animal.listarAnimaisPorEspecie("CACHORRO"));
+               break;
+       }
+    }//GEN-LAST:event_comboBoxEspecieActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        int index = jComboBox1.getSelectedIndex();
-        switch(index){     
-            case 0:
-                txtListaDeAnimais.setText("Exibindo LISTA COMPLETA");
-                break;
-            case 1:
-                txtListaDeAnimais.setText("Exibindo LISTA DE GATOS");
-                break;
-            case 2:
-                txtListaDeAnimais.setText("Exibindo LISTA DE CACHORROS");
-                break;
+    private void comboBoxSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxSexoActionPerformed
+         int indexSexo = comboBoxSexo.getSelectedIndex();
+         String resultado = txtListaDeAnimais.getText();
+         switch(indexSexo){
+             case 0: 
+                 txtListaDeAnimais.setText(resultado + " TODOS");
+                 break;
+             case 1:
+                 txtListaDeAnimais.setText(resultado + " MACHOS");
+                 break;
+             case 2:
+                 txtListaDeAnimais.setText(resultado + " FEMEAS");
+                 break;
+         }
+    }//GEN-LAST:event_comboBoxSexoActionPerformed
+
+    private void btnRegistrarAdocaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarAdocaoActionPerformed
+        String nomeTutor = txtBuscarTutorPorNome.getText();
+        var tutor = Tutor.buscarTutorPorNome(nomeTutor);
+        String nomePet = txtBuscarPetPorNome.getText();
+        var animal = Animal.buscarPorNome(nomePet);
+       
+        if(tutor!=null && animal != null){
+            Adocao.registrarAdocao(tutor, animal);
+            System.out.println("Animal adotado: "+animal.getNome());
+            JOptionPane.showMessageDialog(null, "Adocao cadastrada com sucesso!\n "
+                + animal.getNome() + " foi adotado por "+ tutor.getNome()+".");
+            txtBuscarTutorPorNome.setText("");
+            txtBuscarPetPorNome.setText("");    
         }
-        
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+        else {
+            JOptionPane.showMessageDialog(null, "TODOS OS CAMPOS DEVEM SER PREENCHIDOS!");
+        }       
+    }//GEN-LAST:event_btnRegistrarAdocaoActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -325,11 +360,11 @@ public class TelaRegistroAdocao extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
+        //<txtBuscarTutorPorNome/editor-fold>
         //</editor-fold>
         //</editor-fold>
 
-        /* Create and display the form */
+        /*btnRegistrarAdocao Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaRegistroAdocao().setVisible(true);
@@ -339,21 +374,21 @@ public class TelaRegistroAdocao extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnArquivarTutor1;
-    private javax.swing.JButton btnArquivarTutor2;
+    private javax.swing.JButton btnBuscarPet;
     private javax.swing.JButton btnBuscarTutor;
     private javax.swing.JButton btnEncerrarSessao;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JButton btnRegistrarAdocao;
+    private javax.swing.JButton btnRetornar;
+    private javax.swing.JComboBox<String> comboBoxEspecie;
+    private javax.swing.JComboBox<String> comboBoxSexo;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField txtBuscarPorNome;
-    private javax.swing.JTextField txtBuscarPorNome1;
+    private javax.swing.JTextField txtBuscarPetPorNome;
+    private javax.swing.JTextField txtBuscarTutorPorNome;
     private javax.swing.JTextArea txtListaDeAnimais;
     // End of variables declaration//GEN-END:variables
 }
