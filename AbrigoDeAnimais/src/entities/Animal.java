@@ -9,13 +9,19 @@ public class Animal {
     protected int id;
     protected String nome;
     protected int idade;
+    protected double peso;
+    protected String cor;
+    protected String especie;
 
     public static List<Animal> listaDeAnimais = new ArrayList<>();
 
-    public Animal(String nome, int idade) {
+    public Animal(String nome, int idade, double peso, String cor, String especie) {
         this.id = geradorIdAnimal++;
         this.nome = nome;
         this.idade = idade;
+        this.peso = peso;
+        this.cor = cor;
+        this.especie = especie;
     }
 
     public String getNome() {
@@ -33,10 +39,18 @@ public class Animal {
     public void setIdade(int idade) {
         this.idade = idade;
     }
+    
+    public void emitirSom(){
+        System.out.println("Fazendo barulho");
+    }
 
-    public void cadastrarAnimal(String nome, int idade) {
-        Animal novoAnimal = new Animal(nome, idade);
+    public void cadastrarAnimal(String nome, int idade, double peso, String cor, String especie) {
+        Animal novoAnimal = new Animal(nome, idade, peso, cor, especie);
         listaDeAnimais.add(novoAnimal);
+    }
+    
+    public void cacadastrarAnimal(){
+        listaDeAnimais.add(this);
     }
 
     public void editarAnimal() {
